@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Video Speed",
+  "version": "1.0.0",
+  "description": "Simple keyboard controls for HTML5 video playback speed.",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
