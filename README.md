@@ -1,52 +1,36 @@
 # Simple Video Speed
 
-Uma extensão simples para controlar a velocidade de reprodução de vídeos HTML5 usando o teclado.
+Uma extensão simples para controlar a velocidade de reprodução de vídeos HTML5 usando atalhos do teclado.
 
-Criei este projeto porque queria uma forma rápida de alterar a velocidade de vídeos sem precisar abrir menus ou depender dos controles oferecidos por cada player.
-
-A proposta é manter a extensão pequena e fazer apenas uma coisa: controlar a velocidade do vídeo de forma simples.
+Sem menus, configurações ou dependências. Basta usar os atalhos enquanto assiste a um vídeo.
 
 ## Atalhos
 
 | Tecla | Ação |
 |---|---|
-| `D` | Aumenta a velocidade em 0.5× |
-| `S` | Diminui a velocidade em 0.5× |
+| `D` | Aumenta a velocidade em 0,5× |
+| `S` | Diminui a velocidade em 0,5× |
 | `R` | Retorna para 1× |
 
-A velocidade pode variar entre **0.5× e 3×**.
+A velocidade é limitada entre **0,5× e 3×**.
 
-Sempre que ela é alterada, a velocidade atual aparece brevemente na parte superior da página.
-
-## Como funciona
-
-A extensão procura os elementos `<video>` presentes na página.
-
-Quando existem vários vídeos, ela tenta utilizar primeiro aquele que estiver sendo reproduzido. Caso nenhum esteja em reprodução, utiliza o primeiro vídeo encontrado.
-
-Os atalhos são ignorados enquanto você estiver digitando em campos de texto ou elementos editáveis da página.
-
-Quando um dos atalhos da extensão é utilizado, o evento de teclado é interceptado para evitar conflitos com atalhos implementados pelo próprio site.
-
-## Compatibilidade
-
-A extensão trabalha diretamente com elementos HTML5 `<video>` e pode funcionar em diferentes sites que utilizam esse padrão.
-
-Ela também executa dentro de frames, o que permite funcionar com players incorporados em outras páginas.
-
-Alguns sites podem implementar players, atalhos ou mecanismos próprios que exijam ajustes específicos.
+Sempre que a velocidade é alterada, um pequeno indicador aparece temporariamente na tela mostrando o valor atual.
 
 ## Instalação
 
-Por enquanto, a extensão pode ser instalada manualmente em navegadores baseados em Chromium.
+### Firefox
+
+Por enquanto, a extensão pode ser carregada temporariamente para desenvolvimento e testes.
 
 1. Clone ou baixe este repositório.
-2. Abra a página de extensões do navegador.
-3. Ative o **Modo do desenvolvedor**.
-4. Escolha **Carregar sem compactação**.
-5. Selecione a pasta do projeto.
+2. Abra `about:debugging` no Firefox.
+3. Selecione **Este Firefox**.
+4. Clique em **Carregar extensão temporária**.
+5. Selecione o arquivo `manifest.json`.
 
-Depois disso, abra uma página com vídeo e utilize `D`, `S` e `R` para controlar a velocidade.
+A extensão permanecerá carregada durante a sessão atual do Firefox.
+
+> A publicação no Firefox Add-ons está planejada para uma versão futura.
 
 ## Estrutura do projeto
 
@@ -65,21 +49,23 @@ Define a extensão utilizando Manifest V3 e carrega o script responsável pelo c
 Contém toda a lógica da extensão:
 
 - identifica os vídeos da página;
-- seleciona o vídeo em reprodução;
+- prioriza o vídeo que está em reprodução;
+- funciona com players carregados em frames;
 - captura os atalhos do teclado;
 - altera a velocidade de reprodução;
-- evita conflitos com campos de texto e atalhos dos sites;
+- ignora atalhos enquanto o usuário está digitando;
+- evita que os atalhos da extensão acionem simultaneamente ações do site;
 - exibe temporariamente a velocidade atual na tela.
 
 ## Tecnologias
 
-O projeto foi desenvolvido com JavaScript puro e utiliza as APIs disponíveis no navegador e nos elementos HTML5 de vídeo.
+O projeto foi desenvolvido com JavaScript puro e utiliza APIs nativas do navegador e dos elementos HTML5 de vídeo.
 
-Não há frameworks ou dependências externas.
+Não há frameworks, bibliotecas ou dependências externas.
 
 ## Por que este projeto existe
 
-Simple Video Speed começou como uma ferramenta para resolver uma necessidade pessoal.
+Simple Video Speed começou como uma ferramenta para resolver uma necessidade pessoal: controlar a velocidade dos vídeos de forma rápida sem depender dos controles de cada player.
 
 Além de continuar sendo uma extensão que utilizo no dia a dia, o projeto também serve como uma forma prática de estudar JavaScript, APIs do navegador e o funcionamento de extensões.
 
