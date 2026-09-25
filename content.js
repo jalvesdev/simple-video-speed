@@ -57,6 +57,10 @@ document.addEventListener("keydown", (event) => {
 
     const key = event.key.toLowerCase();
     
+    if (!["d", "s", "r"].includes(key)){
+        return;
+    }
+
     // A tecla pertence ao Simple Video Speed.
     // Evita conflito com atalhos do site.
     event.preventDefault();
