@@ -70,3 +70,7 @@ Simple Video Speed começou como uma ferramenta para resolver uma necessidade pe
 Além de continuar sendo uma extensão que utilizo no dia a dia, o projeto também serve como uma forma prática de estudar JavaScript, APIs do navegador e o funcionamento de extensões.
 
 A intenção é manter o projeto simples. Novas funcionalidades só fazem sentido quando melhorarem a experiência sem transformar uma ferramenta pequena em algo desnecessariamente complexo.
+
+## Licença
+
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações.
